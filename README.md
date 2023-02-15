@@ -13,7 +13,7 @@
 ## 🗣️ About
 
 The purpose of this project is to code a small data exchange program
-using UNIX signals. You can check more details about this project [**here**](https://github.com/joao-per/Minitalk/blob/main/en.subject.pdf).
+using UNIX signals. You can check more details about this project [**here**](https://github.com/joao-per/Minitalk/blob/master/en.subject.pdf).
 
 ## 🛠️ Download
 
