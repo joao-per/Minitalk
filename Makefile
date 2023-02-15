@@ -3,22 +3,23 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+         #
+#    By: joao-per <joao-per@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/15 13:39:37 by joao-per          #+#    #+#              #
-#    Updated: 2022/11/15 15:55:35 by joao-per         ###   ########.fr        #
+#    Created: 2023/02/14 23:31:02 by joao-per          #+#    #+#              #
+#    Updated: 2023/02/14 23:38:18 by joao-per         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# Variáveis
+# Variables
+SERVER_NAME = server
+CLIENT_NAME = client
 
-SERVER_NAME		= server
-CLIENT_NAME		= client
-CC			= gcc
-CFLAGS		= -Wall -Werror -Wextra
-RM			= rm -f
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra -I.
 
-# Cores
+RM = rm -f
+
+# Colors
 
 DEFAULT = \033[0;39m
 GRAY = \033[0;90m
@@ -33,27 +34,19 @@ WHITE = \033[0;97m
 all: $(SERVER_NAME)
 $(SERVER_NAME):
 	@cd ft_printf && make all
-	@echo "$(YELLOW)Compiling: $(DEFAULT)"
-	@$(CC) $(CFLAGS) server.c ft_printf/libftprintf.a -o $(SERVER_NAME)
+	@$(CC) $(CFLAGS) -g server.c ft_printf/libftprintf.a  ft_printf/ft_atoi.c -o $(SERVER_NAME)
 	@echo "$(GREEN)Server compiled! $(DEFAULT)"
-	@$(CC) $(CFLAGS) client.c ft_printf/libftprintf.a -o $(CLIENT_NAME)
+	@$(CC) $(CFLAGS) -g client.c ft_printf/libftprintf.a ft_printf/ft_atoi.c -o $(CLIENT_NAME)
 	@echo "$(GREEN)Client compiled! $(DEFAULT)"
-	@echo "$(RED)Now bend over. $(DEFAULT)"
 
 clean:
 	@cd ft_printf && make clean
-	@$(RM) $(SERVER_NAME)
-	@$(RM) $(CLIENT_NAME)
-	@echo "$(CYAN)Libft files cleaned. $(DEFAULT)"
 	@echo "$(BLUE)Print files cleaned. $(DEFAULT)"
 
-fclean:
+fclean:	clean
 	@cd ft_printf && make fclean
 	@$(RM) $(SERVER_NAME)
 	@$(RM) $(CLIENT_NAME)
-	@echo "$(RED)LIBFT IS GONE $(DEFAULT)"
-	@echo "$(RED)PRINTF IS GONE. $(DEFAULT)"
-	@echo "$(GREEN)And server and client too :D $(DEFAULT)"
+	@echo "$(RED)Everything is cleaned $(DEFAULT)"
 
 re: fclean all
-	@echo "$(MAGENTA)I Like Children tbh. $(DEFAULT)"
