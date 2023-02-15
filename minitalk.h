@@ -3,23 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: joao-per <joao-per@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 10:15:55 by joao-per          #+#    #+#             */
-/*   Updated: 2022/11/15 12:15:52 by joao-per         ###   ########.fr       */
+/*   Created: 2022/11/14 18:09:07 by joao-per          #+#    #+#             */
+/*   Updated: 2022/11/14 18:09:07 by joao-per         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINITALK_H
 # define MINITALK_H
 
-# include "ft_printf/include/ft_printf.h"
-# include "ft_printf/include/libft.h"
-# include <unistd.h>
-# include <signal.h>
-# include <stdlib.h>
+# include "ft_printf/ft_printf.h"
+# include <signal.h> 
 
-char	*g_client;
-char	*ft_vaipaultimo(char *start, char c);
+int message_len;
+
+/*				CLIENT				*/
+void	ft_send_bits(int pid, char i);
+
+/*				SERVER				*/
+void	ft_handler(int signal, siginfo_t *info, void *s);
+
+int		ft_atoi(const char *str);
 
 #endif
