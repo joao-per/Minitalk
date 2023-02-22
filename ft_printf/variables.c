@@ -45,7 +45,7 @@ int	ft_putstr(char *s)
 
 int	ft_putnbr(long long n, int flag)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (flag == 1 && n >= 0)
@@ -76,7 +76,7 @@ int	ft_putnbrbase(unsigned long long nbr, char *base, long len, int flag)
 		len = ft_putstr("0x");
 		flag = 0;
 	}
-	if(base[10] == 'A' && flag == 2)
+	if (base[10] == 'A' && flag == 2)
 	{
 		len = ft_putstr("0X");
 		flag = 0;

@@ -30,15 +30,16 @@ int	format_type(char format, va_list args, int flag)
 	else if (format == 'X')
 		rt_size = ft_putnbrbase(va_arg(args, unsigned int), HEXUP, 0, flag);
 	else if (format == 'p')
-		rt_size = ft_putnbrbase(va_arg(args, unsigned long long), HEXLOW, -1, flag);
+		rt_size = ft_putnbrbase(va_arg(args, unsigned long long),
+				HEXLOW, -1, flag);
 	else if (format == '%')
 		rt_size = ft_putchar('%');
 	return (rt_size);
 }
 
-int ft_flags(char type)
+int	ft_flags(char type)
 {
-	int flag;
+	int	flag;
 
 	flag = 0;
 	if (type == '+')

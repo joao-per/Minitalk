@@ -16,8 +16,6 @@
 # include "ft_printf/ft_printf.h"
 # include <signal.h> 
 
-int message_len;
-
 /*				CLIENT				*/
 void	ft_send_bits(int pid, char i);
 

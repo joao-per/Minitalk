@@ -43,7 +43,7 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	pid = getpid();
-	ft_printf("\033[94mProcessor ID \033[96m->\033[0m %d\n", pid);
+	ft_printf("\033[94mProcessor ID \033[96m==>\033[0m %d\n", pid);
 	ft_printf("\033[90mWaiting for a message...\033[0m\n");
 	signal.sa_sigaction = ft_handler;
 	sigemptyset(&signal.sa_mask);

@@ -12,14 +12,16 @@
 
 #include "minitalk.h"
 
+int	g_message_len;
+
 static void	ft_confirm(int signal)
 {
-	static int i = 0;
-	
+	static int	i = 0;
+
 	if (signal == SIGUSR2)
 	{
 		i++;
-		if(i == message_len)
+		if (i == g_message_len)
 		{
 			ft_printf("\033[0;32mSUCCESS!\033[94m\n");
 			ft_printf("Server Received %d \033[94mcharacters!\n", i);
@@ -48,7 +50,7 @@ int	main(int ac, char **av)
 	int	pid;
 	int	i;
 
-	message_len = strlen(av[2]);
+	g_message_len = ft_strlen(av[2]);
 	i = 0;
 	if (ac != 3)
 	{
